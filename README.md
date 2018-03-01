@@ -1,4 +1,4 @@
-#Test Description
+## Test Description
 Create a currency ticker component
 
 Using one of the available free price APIs on the internet (e.g. Alphavantage), create a currency ticker component that retrieves and displays the exchange rates for the following currency pairs:
