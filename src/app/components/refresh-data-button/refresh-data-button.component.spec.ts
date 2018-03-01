@@ -11,7 +11,7 @@ import { StockTickerComponent } from '../stock-ticker/stock-ticker.component';
 import { RefreshDataButtonComponent } from './refresh-data-button.component';
 import { DashboardComponent } from '../../pages/dashboard/dashboard.component';
 
-describe('PhotoDetailComponent', () => {
+describe('RefreshDataButtonComponent', () => {
   let component: RefreshDataButtonComponent;
   let fixture: ComponentFixture<RefreshDataButtonComponent>;
   let downloadService: DownloadService;
