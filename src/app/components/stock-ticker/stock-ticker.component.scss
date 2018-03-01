@@ -1,0 +1,11 @@
+@import "../../variables.scss";
+
+.stock-ticker-list-cont {
+  list-style-type: none;
+  padding-left: 0px;
+
+  .stock-ticker-el {
+    font-size: $font-big;
+    color: $primary-color;
+  }
+}

@@ -1,0 +1,9 @@
+@import "../../variables.scss";
+
+.refresh-data-button {
+  background-color: $grey-color;
+  font-size: $font-small;
+  height: 25px;
+  outline: none;
+  width: 100px;
+}
