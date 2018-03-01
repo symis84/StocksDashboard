@@ -1,10 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { DownloadService } from '../../services/download.service';
 
-interface IStockList {
-  code: string;
-}
-
 @Component({
   selector: 'app-refresh-data-button',
   templateUrl: './refresh-data-button.component.html',
@@ -23,9 +19,7 @@ export class RefreshDataButtonComponent{
    * @returns {Void}
    */
   public getCurrentPrice(): void {
-
     this.download.requestData();
-
   }
 
 }
