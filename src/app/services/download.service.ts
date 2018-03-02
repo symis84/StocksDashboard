@@ -83,13 +83,19 @@ export class DownloadService {
    */
   public requestCurrencyData(from, to){
     let url = `${DownloadService.ALPHAVANTAGE_URL}function=${DownloadService.CURRENCY_API_FUNCTION_NAME}&from_currency=${from}&to_currency=${to}&apikey=${DownloadService.APIKEY}`;
-      this.http.get(url).subscribe(res => {
-        let response: IStockListResponse = {
-          code: `${res[DownloadService.ALPHAVANTAGE_API_CURRENCY_RESPONSE_MAIN_PROP][DownloadService.ALPHAVANTAGE_API_CURRENCY_RESPONSE_FROM_PROP]}:${res[DownloadService.ALPHAVANTAGE_API_CURRENCY_RESPONSE_MAIN_PROP][DownloadService.ALPHAVANTAGE_API_CURRENCY_RESPONSE_TO_PROP]}`,
-          value: res[DownloadService.ALPHAVANTAGE_API_CURRENCY_RESPONSE_MAIN_PROP][DownloadService.ALPHAVANTAGE_API_CURRENCY_RESPONSE_VALUE_PROP]
+      this.http.get(url).subscribe(
+        (res) => {
+          let response: IStockListResponse = {
+            code: `${res[DownloadService.ALPHAVANTAGE_API_CURRENCY_RESPONSE_MAIN_PROP][DownloadService.ALPHAVANTAGE_API_CURRENCY_RESPONSE_FROM_PROP]}:${res[DownloadService.ALPHAVANTAGE_API_CURRENCY_RESPONSE_MAIN_PROP][DownloadService.ALPHAVANTAGE_API_CURRENCY_RESPONSE_TO_PROP]}`,
+            value: res[DownloadService.ALPHAVANTAGE_API_CURRENCY_RESPONSE_MAIN_PROP][DownloadService.ALPHAVANTAGE_API_CURRENCY_RESPONSE_VALUE_PROP]
+          }
+          this.downloadDataObserver.next([response]);
+        },
+        (err) => {
+          // TBD: console.log to be replaced with a proper log system ( e.g. "AWS.CloudWatch" )
+          console.log('error to download new quotes: ',err);
         }
-        this.downloadDataObserver.next([response]);
-      });
+    );
   }
 
 }
